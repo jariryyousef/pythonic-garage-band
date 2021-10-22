@@ -2,6 +2,7 @@ from abc import abstractmethod, ABC
 class Band():
     name =[]
     members=[]
+    bands=[]
     
     """
     constractor
@@ -10,22 +11,22 @@ class Band():
         self.name = name
         self.members = members
         Band.bands.append(self)
+        # Band.band_members.append(self)
     
     def band_members(self, mname):
         self.mname = mname
         Band.members.append(mname)
 
     def play_solos(self):
-        result = ''
-        for i in Band.members:
-            result += f'{i.play_solo()}\n'
+        result = []
+        for i in self.members:
+            result.append(i.play_solo())
         return result
-
     
 
     @classmethod
     def to_list(cls):
-        return cls.members
+        return cls.bands
 
     def __str__(self):
         return f"Band <{self.name}>"

@@ -135,8 +135,8 @@ def test_play_solos_for_whole_band(one_band):
 def test_class_tracks_instances():
     assert Band.to_list() == []
     the_nobodies = Band("The Nobodies", [])
-    assert len(Band.instances) == 1
-    assert Band.instances[0] == the_nobodies
+    assert len(Band.bands) == 1
+    assert Band.bands[0] == the_nobodies
 
 
 # @pytest.mark.skip("todo")
@@ -186,4 +186,4 @@ def clean():
     There's also a more advanced way to run code after each test as well
     Check the docs for that. Hint: it uses yield
     """
-    Band.instances = []
+    Band.bands = []
